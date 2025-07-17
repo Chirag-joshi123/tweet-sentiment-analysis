@@ -62,7 +62,22 @@ BEARER_TOKEN=your_twitter_api_bearer_token_here
 
 ---
 
-## 🚀 Running the App
+## 🔑 How to Get Your Twitter API Bearer Token
+
+1. Go to the [Twitter Developer Portal](https://developer.twitter.com/)
+2. Log in with your Twitter account and click on **Developer Portal**
+3. Click **Projects & Apps > Overview > + Create App**
+4. After creating the app:
+
+   * Go to your **App Settings**
+   * Navigate to **Keys and Tokens**
+   * Copy the **Bearer Token** and paste it into your `.env` file
+
+Make sure to keep it **private** and never expose it in public repositories.
+
+---
+
+## 🚀 Running the App Locally
 
 ```bash
 python app.py
@@ -70,6 +85,42 @@ python app.py
 
 Then open your browser and go to:
 👉 [http://127.0.0.1:5000](http://127.0.0.1:5000)
+
+---
+
+## 🌍 Deploying on Render (Free Hosting)
+
+Render makes it easy to deploy Flask apps.
+
+### Step-by-step:
+
+1. **Push your code to GitHub**
+
+2. Go to [https://render.com](https://render.com) and sign in
+
+3. Click on **"New Web Service"**
+
+4. Connect your GitHub repo and select this project
+
+5. Use the following settings:
+
+   * **Build Command:**
+
+     ```
+     pip install -r requirements.txt
+     ```
+   * **Start Command:**
+
+     ```
+     gunicorn app:app
+     ```
+   * **Runtime:** Python 3.x
+   * **Environment Variables:**
+     Add your `BEARER_TOKEN` key here.
+
+6. Click **"Create Web Service"**
+
+Your app will be live at a Render-provided URL!
 
 ---
 
@@ -82,7 +133,8 @@ tweet-sentiment-analysis/
 │   └── index.html       # HTML template for UI
 ├── .env                 # Environment variables (not to be shared)
 ├── requirements.txt     # Python dependencies
-└── README.md            # Project documentation
+├── README.md            # Project documentation
+└── Procfile             # Optional (for deployment platforms like Heroku/Render)
 ```
 
 ---
@@ -112,5 +164,5 @@ This project is open-source under the [MIT License](LICENSE).
 
 ## 🙋‍♂️ Author
 
-**Your Name** – [@yourhandle](https://github.com/Chirag-joshi123)
+**Chirag Joshi** – [@Chirag-joshi123](https://github.com/Chirag-joshi123)
 Feel free to fork, contribute, or reach out with suggestions!
