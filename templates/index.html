@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Twitter Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Twitter Sentiment Analysis</h1>
+    <form method="POST">
+        <input type="text" name="keyword" placeholder="Enter keyword to search tweets..." required>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if results %}
+        <h2>Results for "{{ keyword }}":</h2>
+        <table>
+            <tr>
+                <th>Tweet</th>
+                <th>Sentiment</th>
+            </tr>
+            {% for item in results %}
+            <tr>
+                <td>{{ item.tweet }}</td>
+                <td class="{{ item.sentiment }}">{{ item.sentiment }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>
