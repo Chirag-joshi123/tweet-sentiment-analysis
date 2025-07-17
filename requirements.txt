@@ -2,3 +2,4 @@ flask
 tweepy
 textblob
 gunicorn
+python-dotenv
